@@ -28,6 +28,8 @@ namespace Supermarket_mvp.Views
         public PayModeView()
         {
             InitializeComponent();
+            AssociateAndRaiseViewEvents();
+            tabControl1.TabPages.Remove(tabPagePayModeDetail);
         }
 
         public event EventHandler SearchEvent;
@@ -65,30 +67,24 @@ namespace Supermarket_mvp.Views
             set { TxtSearch.Text = value; }
         }
 
-        public bool IsEdit
+        public bool IsEditt
         {
             get { return isEdit; }
             set { isEdit = value; }
         }
 
-        public bool IsSuccessful
+        public bool IsSuccessfull
         {
             get { return isSuccessful; }
             set { isSuccessful = value; }
         }
 
-        public string Message
+        public string Messagee
         {
             get { return message; }
             set { message = value; }
         }
 
-        public PayModeView()
-        {
-            InitializeComponent();
-            AssociateAndRaiseViewEvents();
-            tabControl1.TabPages.Remove(tabPagePayModeDetails);
-        }
 
         private void AssociateAndRaiseViewEvents()
         {
