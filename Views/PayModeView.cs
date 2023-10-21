@@ -10,26 +10,96 @@ using System.Windows.Forms;
 
 namespace Supermarket_mvp.Views
 {
-    public partial class PayModeView : Form
+    public partial class PayModeView : Form, IPayModeView
     {
+        public bool isEdit;
+        public bool isSuccessful;
+        public string message;
+
+        public string PayModeId { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public string PayModeName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string PayModeObservation { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string SerchValues { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public bool IsEdit { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public bool IsSuccessful { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string Message { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         public PayModeView()
         {
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
+        public event EventHandler SearchEvent;
+        public event EventHandler AddNewEvent;
+        public event EventHandler EditEvent;
+        public event EventHandler DeleteEvent;
+        public event EventHandler SaveEvent;
+        public event EventHandler CancelEvent;
 
+
+        public void SetPayModeListBildingSoursce(BindingSource payModeList)
+        {
+            DgPayMode.DataSource = payModeList;
         }
 
-        private void TxtPayModeObservation_TextChanged(object sender, EventArgs e)
+        public string PaymodeId
         {
+            get { return TxtPayModeId.Text; }
+            set { TxtPayModeId.Text = value; }
+        }
+        public string PaymodeName
+        {
+            get { return TxtPayModeName.Text; }
+            set { TxtPayModeName.Text = value; }
 
         }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        public string PaymdeObservation
         {
+            get { return TxtPayModeObservation.Text; }
+            set { TxtPayModeObservation.Text = value; }
+        }
+        public string SearchValues
+        {
+            get { return TxtSearch.Text; }
+            set { TxtSearch.Text = value; }
+        }
 
+        public bool IsEdit
+        {
+            get { return isEdit; }
+            set { isEdit = value; }
+        }
+
+        public bool IsSuccessful
+        {
+            get { return isSuccessful; }
+            set { isSuccessful = value; }
+        }
+
+        public string Message
+        {
+            get { return message; }
+            set { message = value; }
+        }
+
+        public PayModeView()
+        {
+            InitializeComponent();
+            AssociateAndRaiseViewEvents();
+            tabControl1.TabPages.Remove(tabPagePayModeDetails);
+        }
+
+        private void AssociateAndRaiseViewEvents()
+        {
+            BtnSearch.Click += delegate { SaveEvent.Invoke(this, EventArgs.Empty); };
+            TxtSearch.KeyDown += (s, e) =>
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    SearchEvent.Invoke(this, EventArgs.Empty);
+                }
+            };
         }
     }
 }
