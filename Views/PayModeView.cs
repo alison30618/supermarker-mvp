@@ -12,18 +12,9 @@ namespace Supermarket_mvp.Views
 {
     public partial class PayModeView : Form, IPayModeView
     {
-        public bool isEdit;
-        public bool isSuccessful;
-        public string message;
-
-        public string PayModeId { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
-        public string PayModeName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string PayModeObservation { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string SerchValues { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public bool IsEdit { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public bool IsSuccessful { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string Message { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        private bool isEdit;
+        private bool isSuccessful;
+        private string message;
 
         public PayModeView()
         {
@@ -31,6 +22,17 @@ namespace Supermarket_mvp.Views
             AssociateAndRaiseViewEvents();
             tabControl1.TabPages.Remove(tabPagePayModeDetail);
         }
+
+        public string PayModeId { get { return TxtPayModeId.Text; }set { TxtPayModeId.Text = value; } }
+
+        public string PayModeName { get { return TxtPayModeName.Text; } set { TxtPayModeName.Text = value; } }
+        public string PayModeObservation { get { return TxtPayModeObservation.Text; } set { TxtPayModeObservation.Text = value; } }
+        public string SerchValues { get { return TxtSearch.Text; } set { TxtSearch.Text = value; } }
+        public bool IsEdit { get { return isEdit; } set { isEdit = value; } }
+        public bool IsSuccessful { get { return isSuccessful; } set { isSuccessful = value; } }
+        public string Message { get { return message; } set { message = value; } }
+
+        
 
         public event EventHandler SearchEvent;
         public event EventHandler AddNewEvent;
@@ -44,6 +46,27 @@ namespace Supermarket_mvp.Views
         {
             DgPayMode.DataSource = payModeList;
         }
+
+        private static PayModeView instance;
+
+        public static PayModeView GetInstance(Form parentContaine)
+        {
+            if (instance == null || instance.IsDisposed)
+            {
+                instance = new PayModeView();
+                instance.MdiParent = parentContaine;
+            }
+            else
+            {
+                if (instance.WindowState== FormWindowState.Maximized)
+                {
+                    instance.WindowState = FormWindowState.Normal;
+                }
+                instance.BringToFront();
+            }
+            return instance;
+        }
+
 
         public string PaymodeId
         {
@@ -97,5 +120,6 @@ namespace Supermarket_mvp.Views
                 }
             };
         }
+
     }
 }

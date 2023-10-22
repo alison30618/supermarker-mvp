@@ -42,3 +42,4 @@ C:\Users\Alison Angulo Diosa\OneDrive\Desktop\Estru_s3ad\VISUAL STUDIO\Supermark
 C:\Users\Alison Angulo Diosa\OneDrive\Desktop\Estru_s3ad\VISUAL STUDIO\Supermarket-mvp\obj\Debug\net6.0-windows\Supermarket-mvp.csproj.AssemblyReference.cache
 C:\Users\Alison Angulo Diosa\OneDrive\Desktop\Estru_s3ad\VISUAL STUDIO\Supermarket-mvp\obj\Debug\net6.0-windows\Supermarket-mvp.csproj.CopyComplete
 C:\Users\Alison Angulo Diosa\OneDrive\Desktop\Estru_s3ad\VISUAL STUDIO\Supermarket-mvp\bin\Debug\net6.0-windows\Supermarket-mvp.dll.config
+C:\Users\Alison Angulo Diosa\OneDrive\Desktop\Estru_s3ad\VISUAL STUDIO\Supermarket-mvp\obj\Debug\net6.0-windows\Supermarket_mvp.Views.MainView.resources

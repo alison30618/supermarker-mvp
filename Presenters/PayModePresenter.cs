@@ -31,9 +31,12 @@ namespace Supermarket_mvp.Presenters
 
             this.view.SetPayModeListBildingSoursce(payModeBindingSource);
            
-            loadAllPayModeList();
+            
+           loadAllPayModeList();
             this.view.Show();
         }
+
+        
 
         private void loadAllPayModeList()
         {
