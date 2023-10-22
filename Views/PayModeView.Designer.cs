@@ -289,6 +289,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(panel1);
+            IsMdiContainer = true;
             Name = "PayModeView";
             Text = "Pay Mode Management";
             panel1.ResumeLayout(false);

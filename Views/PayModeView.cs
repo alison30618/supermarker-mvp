@@ -23,7 +23,7 @@ namespace Supermarket_mvp.Views
             tabControl1.TabPages.Remove(tabPagePayModeDetail);
         }
 
-        public string PayModeId { get { return TxtPayModeId.Text; }set { TxtPayModeId.Text = value; } }
+        public string PayModeId { get { return TxtPayModeId.Text; } set { TxtPayModeId.Text = value; } }
 
         public string PayModeName { get { return TxtPayModeName.Text; } set { TxtPayModeName.Text = value; } }
         public string PayModeObservation { get { return TxtPayModeObservation.Text; } set { TxtPayModeObservation.Text = value; } }
@@ -32,7 +32,7 @@ namespace Supermarket_mvp.Views
         public bool IsSuccessful { get { return isSuccessful; } set { isSuccessful = value; } }
         public string Message { get { return message; } set { message = value; } }
 
-        
+
 
         public event EventHandler SearchEvent;
         public event EventHandler AddNewEvent;
@@ -54,11 +54,11 @@ namespace Supermarket_mvp.Views
             if (instance == null || instance.IsDisposed)
             {
                 instance = new PayModeView();
-                instance.MdiParent = parentContaine;
+                //instance.MdiParent = parentContaine;
             }
             else
             {
-                if (instance.WindowState== FormWindowState.Maximized)
+                if (instance.WindowState == FormWindowState.Maximized)
                 {
                     instance.WindowState = FormWindowState.Normal;
                 }
@@ -121,5 +121,6 @@ namespace Supermarket_mvp.Views
             };
         }
 
+        
     }
 }
