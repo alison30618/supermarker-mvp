@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace Supermarket_mvp.Views
+﻿namespace Supermarket_mvp.Views
 {
     public partial class PayModeView : Form, IPayModeView
     {
@@ -20,7 +10,9 @@ namespace Supermarket_mvp.Views
         {
             InitializeComponent();
             AssociateAndRaiseViewEvents();
+
             tabControl1.TabPages.Remove(tabPagePayModeDetail);
+            BtnClose.Click += delegate { this.Close(); };
         }
 
         public string PayModeId { get { return TxtPayModeId.Text; } set { TxtPayModeId.Text = value; } }
@@ -49,12 +41,15 @@ namespace Supermarket_mvp.Views
 
         private static PayModeView instance;
 
-        public static PayModeView GetInstance(Form parentContaine)
+        public static PayModeView GetInstance(Form parentContainer)
         {
             if (instance == null || instance.IsDisposed)
             {
                 instance = new PayModeView();
-                //instance.MdiParent = parentContaine;
+                //instance.MdiParent = parentContainer;
+
+                instance.FormBorderStyle = FormBorderStyle.None;
+                instance.Dock = DockStyle.Fill;
             }
             else
             {
@@ -121,6 +116,6 @@ namespace Supermarket_mvp.Views
             };
         }
 
-        
+
     }
 }
